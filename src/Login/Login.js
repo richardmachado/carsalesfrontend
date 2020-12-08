@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {  useForm} from "react-hook-form";
 import {  axiosWithAuth}  from "../utils/axiosWithAuth"
 
@@ -10,7 +10,7 @@ import {  Login,
           Styledform, 
           Labels, 
           Inputs  
-} from "./LoginStyles";
+} from "./styles";
 
 export default function LoginForm(props) {
   const { register, handleSubmit, errors } = useForm();
@@ -20,10 +20,10 @@ export default function LoginForm(props) {
   const onSubmit = data => {
     setLoading(true)
     axiosWithAuth()
-      .post("https://iglesia-backend.herokuapp.com/api/auth/login", data)
+      .post("https://carsalesbackend.herokuapp.com/api/auth/login", data)
       .then(res => {
         localStorage.setItem("token", res.data.token);
-        props.history.push("/profile");
+        props.history.push("/maintenance");
         console.log(res)
       })
       .catch(handleErrors);
