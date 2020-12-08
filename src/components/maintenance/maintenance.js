@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {VehicleInfoBox, Largebox, PicturesBox, AddNewVehicle } from "./styles";
+import {VehicleInfoBox, Largebox, PicturesBox } from "./styles";
 
 import AddNewVehicleModal from './AddNewVehicleModal';
 
-export default function Maintenance() {
+export default function Maintenance(props) {
+  console.log("Props from maintenance", props)
   const [neon, setNeo] = useState();
 
 // console.log(neon)
@@ -34,13 +35,11 @@ export default function Maintenance() {
        
         <AddNewVehicleModal />
 
-        
-  
               {neon.map(vehicle => {
                 return (
-                  <Largebox>
+                  <Largebox key={vehicle.id}>
                     <PicturesBox>pictures will go here</PicturesBox>
-                  <VehicleInfoBox key={vehicle.id}>
+                  <VehicleInfoBox >
                         <h2>Model: {vehicle.year} </h2>
                         <h2>Make: {vehicle.make} </h2>
                         <h3>Vehicle Model: {vehicle.model} </h3>

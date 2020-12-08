@@ -9,7 +9,7 @@ import Maintenance from "./components/maintenance/maintenance"
 import VinSearch from "./components/VinSearch/VinSearch"
 
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Navigation />

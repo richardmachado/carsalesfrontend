@@ -31,7 +31,7 @@ export const Button = styled.button `
 font-size: 21px;
 padding: 5px 20px;
 border: 0;
-background-color: #DADADA;
+background-color: #000000;
 color: #fff;
 border-radius: 3px;
 transition: all 250ms ease-in-out;
