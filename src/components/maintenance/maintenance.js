@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-
+import Modal from "react-modal"
 import axios from "axios";
 import { VehicleInfoBox, Largebox, PicturesBox, Button, Container } from "./styles";
-import  {Link}  from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { confirmationFlow } from "./ConfirmationModal";
+import { useMachine } from "react-robot";
+
 
 // import AddNewVehicleModal from './AddNewVehicleModal';
 
 
 export default function Maintenance(props, id) {
-  console.log(props)
   const removeId = (id) => {
     axios
         .delete(`https://carsalesbackend.herokuapp.com/api/inventory/${id}`)
@@ -23,6 +25,7 @@ export default function Maintenance(props, id) {
   };
 
   const [neon, setNeo] = useState();
+  const [current, send] = useMachine(confirmationFlow);
 
 // console.log(neon)
 
@@ -66,7 +69,26 @@ export default function Maintenance(props, id) {
                         <h4>Warranty: {vehicle.warranty} </h4>
                         {/* <h3>Description {vehicle.description} </h3> */}
                       <button>Edit</button>
-                      <Button onClick={() => removeId(vehicle.id)}>Delete</Button>
+               
+           {/*-------------------------------------Delete Button Modal---------------------------- */}
+                        <Button onClick={() => send('begin')}>
+                            Delete
+                          </Button>
+
+                          <Modal
+                            onRequestClose={() => send('cancel')}
+                            isOpen={current.name === 'confirming'}
+                          >
+                            Are you sure?! Action cannot be undone
+                            <button className="btn btn-success" onClick={() => send('cancel')}>
+                              Cancel
+                            </button>
+                            <button className="btn btn-danger" onClick={() => send(removeId(vehicle.id))}>
+                              Yes Definitely
+                            </button>
+                      </Modal>
+            {/*-------------------------------------End of Delete Button Modal---------------------------- */}
+                      
                     </VehicleInfoBox>
                     </Largebox>
                    

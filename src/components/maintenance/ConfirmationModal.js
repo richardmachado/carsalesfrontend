@@ -1,31 +1,43 @@
-import {useState} from 'react';
-import Modal from 'react-modal';
+import {
+  createMachine,
+  state,
+  transition,
+  interpret,
+  invoke, 
+  reduce
+} from 'robot3';
 
-
-function ConfirmationModal() {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-  return (
-    <div className="App">
-      <button onClick={() => setModalIsOpen(true)}>Open Modal</button>
-      {/* onRequestClose allows you to close the modal by clicking outside the box or the escape key , you can also add shouldCloseOnOverlayClick={false} to override the overlay and only close it with the escape key */}
-      <Modal isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
-        style={
-   {       overlay: {
-     backgroundColor: 'grey'
-          },
-            content: {
-       color:'orange'
-     }
-      }
-    }
-      >
-        <h2>Vehicle Saved</h2>
-        <p>Body</p>
-        <button onClick={()=>setModalIsOpen(false)}>Close</button>
-     </Modal>
-    </div>
-  );
+const deleteSomething = async () => {
+  // call an API to delete something
 }
 
-export default ConfirmationModal;
+const confirmationFlow = createMachine({
+  // State machine goes here
+
+  initial: state(
+    transition('begin', 'confirming')
+  ),
+  confirming: state(
+    transition('confirm', 'loading'),
+    transition('cancel', 'initial')
+  ),
+  loading: invoke(deleteSomething,
+    transition('done', 'initial'),
+    transition('error', 'confirming',
+    reduce((context, event) => {
+      return {
+        ...context,
+        error: event.error
+      }
+    }))
+  )
+});
+
+const service = interpret(confirmationFlow, () => {
+  console.log('state changed to', service.machine.current);
+})
+
+service.send('begin')
+service.send('cancel')
+
+export { confirmationFlow };
