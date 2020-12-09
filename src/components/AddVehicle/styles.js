@@ -1,31 +1,30 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-border:solid orange;
-display:flex;
-flex-wrap:wrap
-`
 
 export const Largebox = styled.div`
-width:30%;
+width:100%;
+border:solid blue 1px;
 display:flex;
 padding-bottom:2rem;
-border: solid blue 1px;
 margin-bottom:1rem;
 `
-
 export const PicturesBox = styled.div`
-width:10rem;
+width:80rem;
 border:solid pink 1px
 `
 
 export const VehicleInfoBox = styled.div`
 border:solid red 1px;
-`
 
+`
 export const AddNewVehicle = styled.button`
 background-color:#66ccff;
 margin-bottom: 2rem;
+`
+
+export const StyledForm = styled.div`
+display: flex;
+flex-direction: column;
 `
 
 export const Button = styled.button `
@@ -45,3 +44,16 @@ cursor: pointer;
   outline: none;
 `
 
+export const Inputs = styled.input `
+margin-top: 1px;
+min-width: 18em;
+height: 37px;
+padding: 0px 10px;
+font-size: 15px;
+font-family: "Open Sans", sans-serif;
+background-color: #f3f3f3;
+border: 0;
+border-radius: 4px;
+margin-bottom: 31px;
+transition: all 250ms ease-in-out;
+`

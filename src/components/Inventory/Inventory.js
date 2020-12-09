@@ -23,7 +23,6 @@ function Inventory() {
     return <div><h1>Loading...</h1></div>
   }
 
-
   return (
     <div className="body">
     <div className="container">
@@ -33,20 +32,19 @@ function Inventory() {
                   <Largebox>
                     <PicturesBox>pictures will go here</PicturesBox>
                   <VehicleInfoBox key={vehicle.id}>
-                        <h2>Model: {vehicle.year} </h2>
-                        <h2>Make: {vehicle.make} </h2>
-                        <h3>Vehicle Model: {vehicle.model} </h3>
-                        <h3>Current Mileage: {vehicle.mileage} </h3>
-                        <h3>Price: ${vehicle.price} </h3>
-                        <h3>Engine Type: {vehicle.engine} </h3>
-                        <h3>Drivetrain: {vehicle.drivetrain} </h3>
-                        <h3>Warranty: {vehicle.warranty} </h3>
-                        <h3>Description {vehicle.description} </h3>
+                        <h3>Model: {vehicle.year} </h3>
+                        <h4>Make: {vehicle.make} </h4>
+                        <h4>Vehicle Model: {vehicle.model} </h4>
+                        <h4>Current Mileage: {vehicle.mileage} </h4>
+                        <h4>Price: ${vehicle.price} </h4>
+                        <h4>Engine Type: {vehicle.engine} </h4>
+                        <h4>Drivetrain: {vehicle.drivetrain} </h4>
+                        <h4>Warranty: {vehicle.warranty} </h4>
+                        <h4>Description {vehicle.description} </h4>
                     </VehicleInfoBox>
                   </Largebox>  
               )
               })}
-
       </div>
     </div>
   );

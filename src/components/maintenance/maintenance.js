@@ -1,11 +1,27 @@
 import React, { useState, useEffect } from "react";
+
 import axios from "axios";
-import {VehicleInfoBox, Largebox, PicturesBox } from "./styles";
+import { VehicleInfoBox, Largebox, PicturesBox, Button, Container } from "./styles";
+import  {Link}  from 'react-router-dom';
 
-import AddNewVehicleModal from './AddNewVehicleModal';
+// import AddNewVehicleModal from './AddNewVehicleModal';
 
-export default function Maintenance(props) {
-  console.log("Props from maintenance", props)
+
+export default function Maintenance(props, id) {
+  console.log(props)
+  const removeId = (id) => {
+    axios
+        .delete(`https://carsalesbackend.herokuapp.com/api/inventory/${id}`)
+      .then(res => {
+        window.location.reload(false);
+        
+      })
+      .catch(err => {
+        alert((err.message = "Vehicle failed to delete"));
+        console.log(err.response);
+      });
+  };
+
   const [neon, setNeo] = useState();
 
 // console.log(neon)
@@ -31,31 +47,32 @@ export default function Maintenance(props) {
     <div className="body">
     <div className="container">
         <h1 className="display-4 my3">Maintenance</h1>  
-
-       
-        <AddNewVehicleModal />
-
+        <Link to="/addvehicle"><Button>Add New Vehicle</Button></Link>
+        <Container>
               {neon.map(vehicle => {
                 return (
+                 
                   <Largebox key={vehicle.id}>
                     <PicturesBox>pictures will go here</PicturesBox>
-                  <VehicleInfoBox >
-                        <h2>Model: {vehicle.year} </h2>
-                        <h2>Make: {vehicle.make} </h2>
-                        <h3>Vehicle Model: {vehicle.model} </h3>
-                        <h3>Current Mileage: {vehicle.mileage} </h3>
-                        <h3>Price: ${vehicle.price} </h3>
-                        <h3>Engine Type: {vehicle.engine} </h3>
-                        <h3>Drivetrain: {vehicle.drivetrain} </h3>
-                        <h3>Warranty: {vehicle.warranty} </h3>
-                      <h3>Description {vehicle.description} </h3>
+                    <VehicleInfoBox>
+                        <h3>ID:{vehicle.id}</h3>
+                        <h4>Model: {vehicle.year} </h4>
+                        <h4>Make: {vehicle.make} </h4>
+                        <h4>Vehicle Model: {vehicle.model} </h4>
+                        <h4>Current Mileage: {vehicle.mileage} </h4>
+                        <h4>Price: ${vehicle.price} </h4>
+                        <h4>Engine Type: {vehicle.engine} </h4>
+                        <h4>Drivetrain: {vehicle.drivetrain} </h4>
+                        <h4>Warranty: {vehicle.warranty} </h4>
+                        {/* <h3>Description {vehicle.description} </h3> */}
                       <button>Edit</button>
-                      <button>Delete</button>
+                      <Button onClick={() => removeId(vehicle.id)}>Delete</Button>
                     </VehicleInfoBox>
-                  </Largebox>  
+                    </Largebox>
+                   
               )
               })}
-
+     </Container>  
       </div>
     </div>
   );

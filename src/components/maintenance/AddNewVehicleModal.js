@@ -2,10 +2,11 @@ import { useState } from 'react';
 import Modal from 'react-modal'
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import {StyledForm, Inputs, Button} from './styles'
+import { StyledForm, Inputs, Button } from './styles';
+import ConfirmationModal from "./ConfirmationModal";
 
 export default function AddNewVehicleModal(props) {
-    console.log("props from Modal", props)
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const { register, handleSubmit, errors } = useForm();
     const [isLoading, setLoading] = useState(false);
@@ -15,7 +16,8 @@ export default function AddNewVehicleModal(props) {
         axios
             .post("https://carsalesbackend.herokuapp.com/api/inventory", data)
           .then(res => {
-            alert("vehicle saved")
+            console.log(res);
+ 
           })
           .catch(err => {
             alert((err.message = "Vehicle failed"));
@@ -24,9 +26,9 @@ export default function AddNewVehicleModal(props) {
       };
 
     return (<div>
-        <button onClick={() => setModalIsOpen(true)}>Add New Vehicle</button>
+        <Button onClick={() => setModalIsOpen(true)}>Add New Vehicle</Button>
         <Modal isOpen={modalIsOpen}
-              ariaHideApp={false}
+        ariaHideApp={false}
         onRequestClose={() => setModalIsOpen(false)}
         style={
    {       overlay: {
@@ -40,7 +42,8 @@ export default function AddNewVehicleModal(props) {
       >
         <h2>Add New Vehicle</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-        <StyledForm>
+          <StyledForm>
+            
         <label htmlFor="year"> </label>
           <Inputs 
             type="text"  
@@ -49,7 +52,7 @@ export default function AddNewVehicleModal(props) {
             name="year" 
             aria-invalid={errors.year ? 'true' : 'false'}
             aria-describedby="error-year-required error-year-maxLength"
-            ref={register({required: true, minLength: 1, maxLength: 4})} 
+            ref={register({required: true, minLength: 4, maxLength: 4})} 
           />
           <span
         role="alert"
@@ -66,11 +69,20 @@ export default function AddNewVehicleModal(props) {
         role="alert"
         id="error-name-maxLength"
         style={{
-          display: errors.name && errors.name.type === "maxLength"
+          display: errors.year && errors.year.type === "maxLength"
             ? "block"
             : "none"
         }}
-                ></span>
+            >Too many characters</span>
+                 <span
+        role="alert"
+        id="error-name-minLength"
+        style={{
+          display: errors.year && errors.year.type === "minLength"
+            ? "block"
+            : "none"
+        }}
+                >Minimum 4 characters</span>
 
 
  {/* End of year  -------------------------------------------------------------------------------              */}
@@ -155,7 +167,7 @@ export default function AddNewVehicleModal(props) {
         role="alert"
         id="error-make-required"
         style={{
-          display: errors.name && errors.name.type === "required"
+          display: errors.mileage && errors.mileage.type === "required"
             ? "block"
             : "none"
         }}
@@ -199,7 +211,7 @@ export default function AddNewVehicleModal(props) {
         role="alert"
         id="error-name-maxLength"
         style={{
-          display: errors.name && errors.name.type === "maxLength"
+          display: errors.price && errors.price.type === "maxLength"
             ? "block"
             : "none"
         }}
@@ -221,7 +233,7 @@ export default function AddNewVehicleModal(props) {
         role="alert"
         id="error-price-required"
         style={{
-          display: errors.name && errors.name.type === "required"
+          display: errors.engine && errors.engine.type === "required"
             ? "block"
             : "none"
         }}
@@ -238,38 +250,15 @@ export default function AddNewVehicleModal(props) {
         }}
                 ></span>           
                 
-                {/* End of engine  -------------------------------------------------------------------------------              */}   
+          {/* End of engine  -------------------------------------------------------------------------------              */}   
                 
-                <label htmlFor="drivetrain"> </label>
-          <Inputs 
-            type="text"  
-            placeholder="Drivetrain" 
-            id="drivetrain"
-            name="drivetrain" 
-            aria-invalid={errors.description ? 'true' : 'false'}
-            aria-describedby="error-description-required error-description-maxLength"
-            ref={register({required: true, minLength: 1, maxLength: 1024})} 
-          />
-          <span
-        role="alert"
-        id="error-price-required"
-        style={{
-          display: errors.name && errors.name.type === "required"
-            ? "block"
-            : "none"
-        }}
-      >
-        Drivetrain is required
-      </span>
-      <span
-        role="alert"
-        id="error-name-maxLength"
-        style={{
-          display: errors.name && errors.name.type === "maxLength"
-            ? "block"
-            : "none"
-        }}
-                ></span>           
+                <p>drivetrain</p>
+    <select name="warranty" ref={register}>
+        <option value="2WD">2WD</option>
+              <option value="4WD">4WD</option>
+              <option value="AWD">AWD</option>
+
+      </select>         
                 
     {/* End of drivetrain  -------------------------------------------------------------------------------*/}   
                 
@@ -335,7 +324,7 @@ export default function AddNewVehicleModal(props) {
 
 
 
-        <button onClick={()=>setModalIsOpen(false)}>Cancel</button>
+        <button onClick={()=>setModalIsOpen(false)}>Done entering vehicles</button>
         </Modal>
         </div>
         )
