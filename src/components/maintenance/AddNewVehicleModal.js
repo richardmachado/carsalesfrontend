@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { StyledForm, Inputs, Button } from './styles';
-import ConfirmationModal from "./ConfirmationModal";
+
 
 export default function AddNewVehicleModal(props) {
 
@@ -268,8 +268,7 @@ export default function AddNewVehicleModal(props) {
         <option value="yes">yes</option>
 
       </select>
- 
-                
+           
  {/* End of Warranty  -------------------------------------------------------------------------------*/}   
 
 
@@ -307,23 +306,15 @@ export default function AddNewVehicleModal(props) {
                 
  {/* End of Description  -------------------------------------------------------------------------------*/}   
 
-
-
 {!isLoading && <Button>Add Vehicle  </Button>}
 
   {isLoading && (
     <Button>
       <i className="fas fa-spinner fa-spin" disabled={isLoading}>Adding Vehicle</i>
       </Button>
-  )}
-
-
-                    
+  )}          
                 </StyledForm>
                 </form>
-
-
-
         <button onClick={()=>setModalIsOpen(false)}>Done entering vehicles</button>
         </Modal>
         </div>

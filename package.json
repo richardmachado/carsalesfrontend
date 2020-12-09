@@ -12,9 +12,11 @@
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.12.2",
     "react-modal": "^3.12.1",
+    "react-robot": "^0.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "reactstrap": "^8.7.1",
+    "robot3": "^0.2.18",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
