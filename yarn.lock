@@ -3576,6 +3576,19 @@ clone-deep@^4.0.1:
     kind-of "^6.0.2"
     shallow-clone "^3.0.0"
 
+cloudinary-core@^2.11.3:
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.11.3.tgz#1440f61c6280485094aac87021b7e10f746dc69e"
+  integrity sha512-ZRnpjSgvx+LbSf+aEz5NKzxDB4Z0436aY/0BSDa90kAHiwAyd84VyEi95I74SE80e15Ri9t5S2xtksTXpzk9Xw==
+
+cloudinary-react@^1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/cloudinary-react/-/cloudinary-react-1.6.8.tgz#e13b229553521aa375db655e9e8a5d3a5a087ca2"
+  integrity sha512-2NSX45MEXT9v1l8XqIebgs+gBiGycjz0VbhvK8VgNWBuTstsbBMxMcaF/0oW9sBh4alZN6odVJaRsQpnHnFnIQ==
+  dependencies:
+    cloudinary-core "^2.11.3"
+    prop-types "^15.6.2"
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
@@ -9569,6 +9582,13 @@ react-refresh@^0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
+react-robot@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-robot/-/react-robot-0.2.1.tgz#5615a13a9c5bddd663fbd5973790ba3e408368b0"
+  integrity sha512-ULQC0wRqOpScl8wUVs/q9fv7skMFPx3Wm1uq1qjeLJs6+CTbhNS4+yq+2TbI43nbkPC3zYMX80CQcXeV4XW4rw==
+  dependencies:
+    robot-hooks "^0.3.1"
+
 react-router-dom@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.2.0.tgz#9e65a4d0c45e13289e66c7b17c7e175d0ea15662"
@@ -10109,6 +10129,16 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+robot-hooks@^0.3.1:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/robot-hooks/-/robot-hooks-0.3.5.tgz#605e766e1da09317a3f7b94eec0137436209ef21"
+  integrity sha512-25FYYtdofIsmH7Ybo+8x6DltGksYSiaC3gbrbeQ8BFqYzfq12KlKIK0wTHHcc8DM7tkZeEMN7yRVOgPAQqt1RA==
+
+robot3@^0.2.18:
+  version "0.2.18"
+  resolved "https://registry.yarnpkg.com/robot3/-/robot3-0.2.18.tgz#bc920db22b91abb044c4e95289baa877fc3d8288"
+  integrity sha512-0P3HfHVJfPKObpoIciglMefFYhMtdGMRjh5KE5U+NydwrheOnbA3GqlB84Wcy5h6UMseb77MpedUDyKZVIkiug==
 
 rollup-plugin-babel@^4.3.3:
   version "4.4.0"

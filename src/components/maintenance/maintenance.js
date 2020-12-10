@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal"
 import axios from "axios";
+import { Image } from 'cloudinary-react';
 import { Body, VehicleInfoBox, Largebox, PicturesBox, DeleteButton, Button, Container } from "./styles";
 import { Link } from 'react-router-dom';
 import { confirmationFlow } from "./ConfirmationModal";
@@ -26,10 +27,22 @@ export default function Maintenance(props, id) {
 
   const [neon, setNeo] = useState();
   const [current, send] = useMachine(confirmationFlow);
+  const [imageIds, setImageIds] = useState();
+  const loadImages = async () => {
+    try {
+      const res = await fetch('https://carsalesbackend.herokuapp.com/api/images');
+      const data = await res.json();
+      // console.log(data)
+      setImageIds(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 // console.log(neon)
 
   useEffect(() => {
+    loadImages();
     axios
       .get("https://carsalesbackend.herokuapp.com/api/inventory")
       .then(response => {
@@ -56,7 +69,20 @@ export default function Maintenance(props, id) {
                 return (
                  
                   <Largebox key={vehicle.id}>
-                    <PicturesBox>pictures will go here</PicturesBox>
+                    <PicturesBox>pictures will go here
+                       {imageIds && imageIds.map((imageId, index) => (
+                         <Image
+                           key={index}
+                           cloudName="dd1erw65b"
+                           publicId={imageId}
+                           width="100"
+                           crop="scale"
+                         />
+                        ))}
+                    </PicturesBox>
+                    
+
+
                     <VehicleInfoBox>
                         <h3>ID:{vehicle.id}</h3>
                         <h4>Model: {vehicle.year} </h4>
@@ -80,7 +106,7 @@ export default function Maintenance(props, id) {
                             isOpen={current.name === 'confirming'}
                           >
                             Are you sure?! Action cannot be undone
-                            <button className="btn btn-success" onClick={() => send('cancel')}>
+                            <button onClick={() => send('cancel')}>
                               Cancel
                             </button>
                             <button className="btn btn-danger" onClick={() => send(removeId(vehicle.id))}>

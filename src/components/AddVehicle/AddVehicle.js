@@ -8,15 +8,42 @@ import {Link} from 'react-router-dom';
 export default function AddVehicle(props) {
 
     const { register, handleSubmit, errors } = useForm();
-    const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [fileInputState] = useState('');
 
-    const onSubmit = data => {
+  const [previewSource, setPreviewSource] = useState();
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
+  };
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result)
+    }
+  }
+  const uploadImage = async(base64EncodedImage) => {
+    try {
+      await fetch('https://carsalesbackend.herokuapp.com/api/upload', {
+        method: 'POST',
+        body: JSON.stringify({ data: base64EncodedImage}),
+        headers:{"content-type": 'application/json'}
+      })
+
+    } catch (error) {
+      console.log(error)
+    }
+  } 
+  const onSubmit = data => {
+    if (!previewSource) return;
+    uploadImage(previewSource);
       setLoading(true);
         axios
             .post("https://carsalesbackend.herokuapp.com/api/inventory", data)
             .then(res => {
                 props.history.push("/maintenance");
-              console.log(res);
+                console.log(res);
           })
           .catch(err => {
             alert((err.message = "Vehicle failed"));
@@ -70,7 +97,17 @@ export default function AddVehicle(props) {
                 ? "block"
                 : "none"
             }}
-                    >Minimum 4 characters</span>
+            >Minimum 4 characters</span>
+            <Inputs
+              type="file"
+              name="image"
+              onChange={ handleFileInputChange}
+              value={ fileInputState}
+              className="form-input"
+            />
+            {previewSource && (
+              <img src={previewSource} alt="chosen" style={{height:"300px", width:'300px'}} />
+            )}
     
     
      {/* End of year  -------------------------------------------------------------------------------              */}
