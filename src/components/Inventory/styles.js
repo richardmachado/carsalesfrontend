@@ -17,3 +17,12 @@ export const VehicleInfoBox = styled.div`
 border:solid red 1px;
 
 `
+
+export const VehicleModel = styled.div`
+font-family: Lato,Verdana,Arial,sans-serif;
+font-weight: 700;
+font-size: 16px;
+line-height: 31px;
+color: #053361;
+
+`

@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-
+export const Container = styled.div`
+width:80%;
+margin-left: 3rem;
+background-color:#dadee6;
+`
 export const Largebox = styled.div`
 width:100%;
 border:solid blue 1px;

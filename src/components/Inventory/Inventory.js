@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import {Largebox, PicturesBox, VehicleInfoBox} from "./styles"
+import {Largebox, PicturesBox, VehicleInfoBox, VehicleModel} from "./styles"
 
 function Inventory() {
     const [neon, setNeo] = useState();
@@ -20,7 +20,7 @@ function Inventory() {
       });
   }, []);
   if (!neon) {
-    return <div><h1>Loading...</h1></div>
+    return <div><h1>Loading Vehicles...</h1></div>
   }
 
   return (
@@ -32,15 +32,14 @@ function Inventory() {
                   <Largebox>
                     <PicturesBox>pictures will go here</PicturesBox>
                   <VehicleInfoBox key={vehicle.id}>
-                        <h3>Model: {vehicle.year} </h3>
-                        <h4>Make: {vehicle.make} </h4>
-                        <h4>Vehicle Model: {vehicle.model} </h4>
-                        <h4>Current Mileage: {vehicle.mileage} </h4>
-                        <h4>Price: ${vehicle.price} </h4>
-                        <h4>Engine Type: {vehicle.engine} </h4>
-                        <h4>Drivetrain: {vehicle.drivetrain} </h4>
-                        <h4>Warranty: {vehicle.warranty} </h4>
-                        <h4>Description {vehicle.description} </h4>
+                        <VehicleModel>Year: {vehicle.year} {vehicle.make} {vehicle.model}</VehicleModel>
+
+                        <VehicleModel>Current Mileage: {vehicle.mileage} </VehicleModel>
+                        <VehicleModel>Price: ${vehicle.price} </VehicleModel>
+                        <VehicleModel> Engine Type: {vehicle.engine} </VehicleModel>
+                        <VehicleModel>Drivetrain: {vehicle.drivetrain} </VehicleModel>
+                        <VehicleModel>Warranty: {vehicle.warranty} </VehicleModel>
+                        <VehicleModel>Description {vehicle.description} </VehicleModel>
                     </VehicleInfoBox>
                   </Largebox>  
               )

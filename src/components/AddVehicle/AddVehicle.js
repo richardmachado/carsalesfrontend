@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import { StyledForm, Inputs, Button } from './styles';
+import { Container, StyledForm, Inputs, Button } from './styles';
 // import ConfirmationModal from "./ConfirmationModal";
+import {Link} from 'react-router-dom';
 
 export default function AddVehicle(props) {
 
@@ -24,7 +25,8 @@ export default function AddVehicle(props) {
       };
 
     return (
-        <div>
+      <Container>
+        <Link to ="/maintenance"><Button>Cancel</Button></Link>
             <h2>Add New Vehicle</h2>
             
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -301,6 +303,6 @@ export default function AddVehicle(props) {
   )}
                     </StyledForm>
             </form>
-        </div>
+        </Container>
         )
     }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal"
 import axios from "axios";
-import { VehicleInfoBox, Largebox, PicturesBox, Button, Container } from "./styles";
+import { Body, VehicleInfoBox, Largebox, PicturesBox, DeleteButton, Button, Container } from "./styles";
 import { Link } from 'react-router-dom';
 import { confirmationFlow } from "./ConfirmationModal";
 import { useMachine } from "react-robot";
@@ -47,7 +47,7 @@ export default function Maintenance(props, id) {
 
 
   return (
-    <div className="body">
+    <Body>
     <div className="container">
         <h1 className="display-4 my3">Maintenance</h1>  
         <Link to="/addvehicle"><Button>Add New Vehicle</Button></Link>
@@ -71,9 +71,9 @@ export default function Maintenance(props, id) {
                       <button>Edit</button>
                
            {/*-------------------------------------Delete Button Modal---------------------------- */}
-                        <Button onClick={() => send('begin')}>
+                        <DeleteButton onClick={() => send('begin')}>
                             Delete
-                          </Button>
+                          </DeleteButton>
 
                           <Modal
                             onRequestClose={() => send('cancel')}
@@ -96,7 +96,7 @@ export default function Maintenance(props, id) {
               })}
      </Container>  
       </div>
-    </div>
+    </Body>
   );
 }
 

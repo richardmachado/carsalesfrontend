@@ -6,7 +6,9 @@ height: 10%;
 `
 
 export const Usedcarsborder = styled.div`
-background-color:#ffc34d
+background-color:#dee3d1;
+padding-bottom:2rem;
+margin-top:2rem;
 `
 export const Usedcars = styled.h1`
 font-family: CarMaxSharpSansDisp-Bold,Frutiger,‘Frutiger Linotype’,Univers,Calibri,‘Gill Sans’,‘Gill Sans MT’,‘Myriad Pro’,Myriad,‘DejaVu Sans Condensed’,‘Liberation Sans’,‘Nimbus Sans L’,Tahoma,Geneva,‘Helvetica Neue’,Helvetica,Arial,sans-serif;

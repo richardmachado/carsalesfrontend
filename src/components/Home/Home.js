@@ -12,12 +12,18 @@ export class Home extends Component {
     render() {
         return (
             <div className="home">
-                 <Usedcarsborder>
+                <Usedcarsborder>
+                <Usedcars>Static Photo</Usedcars>
                 <Photo src={dealer} alt="logo" />
-               
-
                 </Usedcarsborder>
-                <Usedcars>Used cars</Usedcars>
+
+                <Usedcarsborder>
+                <Usedcars>Photo Carousel</Usedcars>
+                <Photo src={dealer} alt="logo" />
+                </Usedcarsborder>
+
+
+
             </div>
         )
     }

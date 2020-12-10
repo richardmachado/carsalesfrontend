@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
+export const Body = styled.div`
+background-color:#dadee6;
+`
 export const Container = styled.div`
-border:solid orange;
 display:flex;
 flex-wrap:wrap
+background-color:blue
 `
 
 export const Largebox = styled.div`
@@ -12,6 +15,7 @@ display:flex;
 padding-bottom:2rem;
 border: solid blue 1px;
 margin-bottom:1rem;
+margin-left:1rem;
 `
 
 export const PicturesBox = styled.div`
@@ -40,6 +44,24 @@ transition: all 250ms ease-in-out;
 cursor: pointer;
 &:hover {
   background-color: #FFB90F;
+}
+&:focus {
+  outline: none;
+`
+
+export const DeleteButton = styled.button `
+font-size: 21px;
+padding: 5px 20px;
+margin-bottom:2rem;
+border: 0;
+background-color: #000000;
+color: #fff;
+border-radius: 3px;
+transition: all 250ms ease-in-out;
+cursor: pointer;
+&:hover {
+  background-color: red;
+
 }
 &:focus {
   outline: none;
