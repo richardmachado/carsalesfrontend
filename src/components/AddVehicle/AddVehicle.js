@@ -7,15 +7,17 @@ import {Link} from 'react-router-dom';
 
 export default function AddVehicle(props) {
 
-    const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const [isLoading, setLoading] = useState(false);
   const [fileInputState] = useState('');
-
   const [previewSource, setPreviewSource] = useState();
+
+  
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     previewFile(file);
   };
+
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -57,14 +59,59 @@ export default function AddVehicle(props) {
             <h2>Add New Vehicle</h2>
             
             <form onSubmit={handleSubmit(onSubmit)}>
-            <StyledForm>
+          <StyledForm>
+          <label htmlFor="year"> </label>
+              <Inputs 
+                type="text"  
+                placeholder="Vin Number" 
+                id="vin"
+              name="vin" 
+              defaultValue="1Z000000000000000"
+                aria-invalid={errors.vin ? 'true' : 'false'}
+                aria-describedby="error-vin-required error-vin-maxLength"
+                ref={register({required: true, minLength: 17, maxLength: 17})} 
+              />
+              <span
+            role="alert"
+            id="error-name-required"
+            style={{
+              display: errors.vin && errors.vin.type === "required"
+                ? "block"
+                : "none"
+            }}
+          >
+            Vin number is required
+          </span>
+          <span
+            role="alert"
+            id="error-name-maxLength"
+            style={{
+              display: errors.vin && errors.vin.type === "maxLength"
+                ? "block"
+                : "none"
+            }}
+                >Too many characters</span>
+                     <span
+            role="alert"
+            id="error-name-minLength"
+            style={{
+              display: errors.vin && errors.vin.type === "minLength"
+                ? "block"
+                : "none"
+            }}
+            >A vin number is minimum 17 characters</span>
+
+    
+    
+     {/* End of vin  -------------------------------------------------------------------------------              */}
             
             <label htmlFor="year"> </label>
               <Inputs 
                 type="text"  
                 placeholder="Year" 
                 id="year"
-                name="year" 
+              name="year"
+              defaultValue="2015"
                 aria-invalid={errors.year ? 'true' : 'false'}
                 aria-describedby="error-year-required error-year-maxLength"
                 ref={register({required: true, minLength: 4, maxLength: 4})} 
@@ -102,11 +149,11 @@ export default function AddVehicle(props) {
               type="file"
               name="image"
               onChange={ handleFileInputChange}
-              value={ fileInputState}
+              value={ fileInputState }
               className="form-input"
             />
             {previewSource && (
-              <img src={previewSource} alt="chosen" style={{height:"300px", width:'300px'}} />
+              <img src={previewSource} alt="chosen" style={{height:"200px", width:'200px'}} />
             )}
     
     
@@ -117,7 +164,8 @@ export default function AddVehicle(props) {
                 type="text"  
                 placeholder="Make" 
                 id="make"
-                name="make" 
+              name="make"
+              defaultValue="Toyota"
                 aria-invalid={errors.make ? 'true' : 'false'}
                 aria-describedby="error-make-required error-make-maxLength"
                 ref={register({required: true, minLength: 1, maxLength: 24})} 
@@ -150,7 +198,8 @@ export default function AddVehicle(props) {
                 type="text"  
                 placeholder="Model" 
                 id="model"
-                name="model" 
+              name="model"
+              defaultValue="Corolla"
                 aria-invalid={errors.model ? 'true' : 'false'}
                 aria-describedby="error-model-required error-model-maxLength"
                 ref={register({required: true, minLength: 1, maxLength: 24})} 
@@ -183,7 +232,8 @@ export default function AddVehicle(props) {
                 type="text"  
                 placeholder="Mileage" 
                 id="mileage"
-                name="mileage" 
+              name="mileage"
+              defaultValue="2000"
                 aria-invalid={errors.make ? 'true' : 'false'}
                 aria-describedby="error-make-required error-make-maxLength"
                 ref={register({required: true, minLength: 1, maxLength: 10})} 
@@ -203,29 +253,56 @@ export default function AddVehicle(props) {
             role="alert"
             id="error-name-maxLength"
             style={{
-              display: errors.name && errors.name.type === "maxLength"
+              display: errors.mileage && errors.mileage.type === "maxLength"
                 ? "block"
                 : "none"
             }}
-                    ></span>
+            >Too many miles</span>
                     
-    {/* End of mileage  -------------------------------------------------------------------------------              */}   
+            {/* End of mileage  -------------------------------------------------------------------------------              */}   
+            <label htmlFor="fuel_economy"> </label>
+              <Inputs 
+                type="text"  
+                placeholder="Fuel Economy" 
+                id="fuel_economy"
+              name="fuel_economy"
+              defaultValue="25 HWY 20 CITY"
+                aria-invalid={errors.fuel_economy ? 'true' : 'false'}
+                aria-describedby="error-fuel_economy-required"
+                ref={register({required: true, minLength: 1})} 
+              />
+              <span
+            role="alert"
+            id="error-fuel_economy-required"
+            style={{
+              display: errors.fuel_economy && errors.fuel_economy.type === "required"
+                ? "block"
+                : "none"
+            }}
+          >
+            Fuel Economy is required
+          </span>
+      
+                    
+            {/* End of Fuel Economy  -------------------------------------------------------------------------------              */} 
+            
                     
                 <label htmlFor="price"> </label>
               <Inputs 
                 type="text"  
                 placeholder="Price, no commas or special characters" 
                 id="price"
-                name="price" 
+              name="price"
+              defaultValue="20000"
                 aria-invalid={errors.price ? 'true' : 'false'}
                 aria-describedby="error-price-required error-price-maxLength"
-                ref={register({required: true, minLength: 1, maxLength: 10})} 
+                ref={register({required: true, minLength: 1, maxLength: 8})} 
               />
               <span
             role="alert"
             id="error-price-required"
             style={{
-              display: errors.name && errors.name.type === "required"
+              display: errors.price && errors.price.type === "required"
                 ? "block"
                 : "none"
             }}
@@ -240,7 +317,7 @@ export default function AddVehicle(props) {
                 ? "block"
                 : "none"
             }}
-                    ></span>           
+                    >Price is too high</span>           
                     
      {/* End of price  -------------------------------------------------------------------------------              */}   
     
@@ -249,10 +326,11 @@ export default function AddVehicle(props) {
                 type="text"  
                 placeholder="Engine" 
                 id="engine"
-                name="engine" 
+              name="engine"
+              defaultValue="2.3 V4 Automatic"
                 aria-invalid={errors.engine ? 'true' : 'false'}
                 aria-describedby="error-price-required error-price-maxLength"
-                ref={register({required: true, minLength: 1, maxLength: 128})} 
+                ref={register({required: true, minLength: 1})} 
               />
               <span
             role="alert"
@@ -265,21 +343,73 @@ export default function AddVehicle(props) {
           >
             Engine is required
           </span>
-          <span
+      
+                    
+            {/* End of engine  -------------------------------------------------------------------------------              */}  
+            
+            <label htmlFor="color_interior"> </label>
+              <Inputs 
+                type="text"  
+                placeholder="Interior Color" 
+                id="color_interior"
+              name="color_interior"
+              defaultValue="Blue"
+                aria-invalid={errors.color_interior ? 'true' : 'false'}
+                aria-describedby="error-color_interior-required"
+                ref={register({required: true, minLength: 1})} 
+              />
+              <span
             role="alert"
-            id="error-name-maxLength"
+            id="error-color_interior-required"
             style={{
-              display: errors.name && errors.name.type === "maxLength"
+              display: errors.color_interior && errors.color_interior.type === "required"
                 ? "block"
                 : "none"
             }}
-                    ></span>           
+          >
+            Interior Color is required
+          </span>
+      
                     
-              {/* End of engine  -------------------------------------------------------------------------------              */}   
+            {/* End of Interior Color  -------------------------------------------------------------------------------              */} 
+            
+              <label htmlFor="color_exterior"> </label>
+              <Inputs 
+                type="text"  
+                placeholder="Exterior Color" 
+                id="color_exterior"
+              name="color_exterior"
+              defaultValue="Blue"
+                aria-invalid={errors.color_exterior ? 'true' : 'false'}
+                aria-describedby="error-color_exterior-required error-color_exterior-maxLength"
+                ref={register({required: true, minLength: 1})} 
+              />
+              <span
+            role="alert"
+            id="error-color_exterior-required"
+            style={{
+              display: errors.color_exterior && errors.color_exterior.type === "required"
+                ? "block"
+                : "none"
+            }}
+          >
+            Exterior Color is required
+          </span>
+      
                     
+              {/* End of Exterior Color  -------------------------------------------------------------------------------              */}   
+                <p>Interior Fabric</p>
+                  <select name="fabric" ref={register}>
+                  <option value="Cloth">Cloth</option>
+                  <option value="Leather">Leather </option>
+  
+    
+          </select>         
+                    
+        {/* End of Fabric  -------------------------------------------------------------------------------*/}   
                     <p>drivetrain</p>
         <select name="drivetrain" ref={register}>
-            <option value="2WD">2WD</option>
+                  <option value="2WD">2WD</option>
                   <option value="4WD">4WD</option>
                   <option value="AWD">AWD</option>
     
@@ -304,7 +434,8 @@ export default function AddVehicle(props) {
                 type="text"  
                 placeholder="Enter your description here" 
                 id="description"
-                name="description" 
+              name="description"
+              defaultValue="Super nice ride, you are going to love it"
                 aria-invalid={errors.description ? 'true' : 'false'}
                 aria-describedby="error-description-required error-description-maxLength"
                 ref={register({required: true, minLength: 1, maxLength: 1024})} 
@@ -313,7 +444,7 @@ export default function AddVehicle(props) {
             role="alert"
             id="error-price-required"
             style={{
-              display: errors.name && errors.name.type === "required"
+              display: errors.description && errors.description.type === "required"
                 ? "block"
                 : "none"
             }}
@@ -324,11 +455,11 @@ export default function AddVehicle(props) {
             role="alert"
             id="error-name-maxLength"
             style={{
-              display: errors.name && errors.name.type === "maxLength"
+              display: errors.description && errors.description.type === "maxLength"
                 ? "block"
                 : "none"
             }}
-                    ></span>           
+                    >Description too long</span>           
                     
                     {/* End of Description  -------------------------------------------------------------------------------*/} 
                     {!isLoading && <Button>Add Vehicle  </Button>}

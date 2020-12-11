@@ -4,7 +4,7 @@ import axios from "axios";
 import { Image } from 'cloudinary-react';
 import { Body, VehicleInfoBox, Largebox, PicturesBox, DeleteButton, Button, Container } from "./styles";
 import { Link } from 'react-router-dom';
-import { confirmationFlow } from "./ConfirmationModal";
+import { confirmationFlow } from "./ConfirmationFlow";
 import { useMachine } from "react-robot";
 
 
@@ -69,7 +69,7 @@ export default function Maintenance(props, id) {
                 return (
                  
                   <Largebox key={vehicle.id}>
-                    <PicturesBox>pictures will go here
+                    <PicturesBox>
                        {imageIds && imageIds.map((imageId, index) => (
                          <Image
                            key={index}
@@ -81,19 +81,21 @@ export default function Maintenance(props, id) {
                         ))}
                     </PicturesBox>
                     
-
-
                     <VehicleInfoBox>
-                        <h3>ID:{vehicle.id}</h3>
-                        <h4>Model: {vehicle.year} </h4>
-                        <h4>Make: {vehicle.make} </h4>
-                        <h4>Vehicle Model: {vehicle.model} </h4>
-                        <h4>Current Mileage: {vehicle.mileage} </h4>
-                        <h4>Price: ${vehicle.price} </h4>
-                        <h4>Engine Type: {vehicle.engine} </h4>
-                        <h4>Drivetrain: {vehicle.drivetrain} </h4>
-                        <h4>Warranty: {vehicle.warranty} </h4>
-                        {/* <h3>Description {vehicle.description} </h3> */}
+                      <h3>ID:{vehicle.id}</h3>
+                      <h6>Vin:{vehicle.vin}</h6>
+                      <h4>Model: {vehicle.year} </h4>
+                      <h4>Make: {vehicle.make} </h4>
+                      <h4>Vehicle Model: {vehicle.model} </h4>
+                      <h4>Current Mileage: {vehicle.mileage} </h4>
+                      <h4>Price: ${vehicle.price} </h4>
+                      <h4>Exterior Color: {vehicle.color_exterior} </h4>
+                      <h4>Interior Color: {vehicle.color_interior} </h4>
+                      <h4>Interior Fabric: {vehicle.fabric}</h4>
+                      <h4>Engine Type: {vehicle.engine} </h4>
+                      <h4>Drivetrain: {vehicle.drivetrain} </h4>
+                      <h4>Warranty: {vehicle.warranty} </h4>
+                      {/* <h3>Description {vehicle.description} </h3> */}
                       <button>Edit</button>
                
            {/*-------------------------------------Delete Button Modal---------------------------- */}

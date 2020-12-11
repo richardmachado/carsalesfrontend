@@ -31,12 +31,16 @@ function Inventory() {
                 return (
                   <Largebox>
                     <PicturesBox>pictures will go here</PicturesBox>
-                  <VehicleInfoBox key={vehicle.id}>
+                      <VehicleInfoBox key={vehicle.id}>
+                      
                         <VehicleModel>Year: {vehicle.year} {vehicle.make} {vehicle.model}</VehicleModel>
-
+                      <VehicleModel>Exterior Color: {vehicle.color_exterior} </VehicleModel>
+                      <VehicleModel>Interior Color: {vehicle.color_interior} </VehicleModel>
+                      <VehicleModel>Interior Fabric: {vehicle.fabric}</VehicleModel>
+                        <VehicleModel>Vin:{vehicle.vin}</VehicleModel>
                         <VehicleModel>Current Mileage: {vehicle.mileage} </VehicleModel>
                         <VehicleModel>Price: ${vehicle.price} </VehicleModel>
-                        <VehicleModel> Engine Type: {vehicle.engine} </VehicleModel>
+                        <VehicleModel>Engine Type: {vehicle.engine} </VehicleModel>
                         <VehicleModel>Drivetrain: {vehicle.drivetrain} </VehicleModel>
                         <VehicleModel>Warranty: {vehicle.warranty} </VehicleModel>
                         <VehicleModel>Description {vehicle.description} </VehicleModel>
