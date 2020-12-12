@@ -29,9 +29,9 @@ function Inventory() {
       <h1 className="display-4 my3">Inventory</h1>        
               {neon.map(vehicle => {
                 return (
-                  <Largebox>
+                  <Largebox key={vehicle.id}>
                     <PicturesBox>pictures will go here</PicturesBox>
-                      <VehicleInfoBox key={vehicle.id}>
+                      <VehicleInfoBox >
                       
                         <VehicleModel>Year: {vehicle.year} {vehicle.make} {vehicle.model}</VehicleModel>
                       <VehicleModel>Exterior Color: {vehicle.color_exterior} </VehicleModel>

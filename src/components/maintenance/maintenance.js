@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal"
 import axios from "axios";
 import { Image } from 'cloudinary-react';
-import { Body, VehicleInfoBox, Largebox, PicturesBox, DeleteButton, Button, Container } from "./styles";
+import {
+  Body,
+  // VehicleInfoBox,
+  Largebox,
+  PicturesBox,
+  DeleteButton,
+  Button,
+  Container
+} from "./styles";
 import { Link } from 'react-router-dom';
 import { confirmationFlow } from "./ConfirmationFlow";
 import { useMachine } from "react-robot";
@@ -61,7 +69,7 @@ export default function Maintenance(props, id) {
 
   return (
     <Body>
-    <div className="container">
+    <div>
         <h1 className="display-4 my3">Maintenance</h1>  
         <Link to="/addvehicle"><Button>Add New Vehicle</Button></Link>
         <Container>
@@ -81,8 +89,8 @@ export default function Maintenance(props, id) {
                         ))}
                     </PicturesBox>
                     
-                    <VehicleInfoBox>
-                      <h3>ID:{vehicle.id}</h3>
+                    <Largebox>
+                      <h3>ID:{vehicle.id}</h3>  
                       <h6>Vin:{vehicle.vin}</h6>
                       <h4>Model: {vehicle.year} </h4>
                       <h4>Make: {vehicle.make} </h4>
@@ -117,7 +125,7 @@ export default function Maintenance(props, id) {
                       </Modal>
             {/*-------------------------------------End of Delete Button Modal---------------------------- */}
                       
-                    </VehicleInfoBox>
+                    </Largebox>
                     </Largebox>
                    
               )

@@ -5,13 +5,15 @@ background-color:#dadee6;
 `
 export const Container = styled.div`
 display:flex;
+flex-direction:column;
 flex-wrap:wrap
 background-color:blue
 `
 
 export const Largebox = styled.div`
-width:30%;
+width:100%;
 display:flex;
+flex-direction:row;
 padding-bottom:2rem;
 border: solid blue 1px;
 margin-bottom:1rem;
