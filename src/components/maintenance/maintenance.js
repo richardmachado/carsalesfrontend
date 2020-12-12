@@ -8,6 +8,7 @@ import {
   Largebox,
   PicturesBox,
   DeleteButton,
+  EditButton,
   Button,
   Container
 } from "./styles";
@@ -104,7 +105,7 @@ export default function Maintenance(props, id) {
                       <h4>Drivetrain: {vehicle.drivetrain} </h4>
                       <h4>Warranty: {vehicle.warranty} </h4>
                       {/* <h3>Description {vehicle.description} </h3> */}
-                      <button>Edit</button>
+                      <EditButton>Edit</EditButton>
                
            {/*-------------------------------------Delete Button Modal---------------------------- */}
                         <DeleteButton onClick={() => send('begin')}>

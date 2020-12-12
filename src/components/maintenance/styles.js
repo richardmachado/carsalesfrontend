@@ -4,8 +4,7 @@ export const Body = styled.div`
 background-color:#dadee6;
 `
 export const Container = styled.div`
-display:flex;
-flex-direction:column;
+grid-row:auto;
 flex-wrap:wrap
 background-color:blue
 `
@@ -13,7 +12,7 @@ background-color:blue
 export const Largebox = styled.div`
 width:100%;
 display:flex;
-flex-direction:row;
+flex-direction:row  ;
 padding-bottom:2rem;
 border: solid blue 1px;
 margin-bottom:1rem;
@@ -35,6 +34,23 @@ margin-bottom: 2rem;
 `
 
 export const Button = styled.button `
+font-size: 21px;
+padding: 5px 20px;
+margin-bottom:2rem;
+border: 0;
+background-color: #000000;
+color: #fff;
+border-radius: 3px;
+transition: all 250ms ease-in-out;
+cursor: pointer;
+&:hover {
+  background-color: #FFB90F;
+}
+&:focus {
+  outline: none;
+`
+
+export const EditButton = styled.button `
 font-size: 21px;
 padding: 5px 20px;
 margin-bottom:2rem;

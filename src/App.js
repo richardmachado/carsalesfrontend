@@ -8,7 +8,7 @@ import Inventory from "./components/Inventory/Inventory";
 import Maintenance from "./components/maintenance/maintenance";
 import VinSearch from "./components/VinSearch/VinSearch";
 import AddVehicle from './components/AddVehicle/AddVehicle';
-
+import Financing from "./components/Financing/Financing"
 
 function App(props) {
   return (
@@ -21,6 +21,7 @@ function App(props) {
         <Route path="/inventory" component={Inventory} />
         <Route path="/maintenance" component={Maintenance} />
         <Route path="/addvehicle" component={AddVehicle} />
+        <Route path="/financing" component={Financing} />
    
       </Switch>
     </div>
