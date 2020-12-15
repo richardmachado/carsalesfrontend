@@ -12,7 +12,6 @@ import {
   EditButton,
   Button,
   Container,
-  // Legend
 } from "./styles";
 import { Link } from 'react-router-dom';
 import { confirmationFlow } from "./ConfirmationFlow";
@@ -77,22 +76,7 @@ export default function Maintenance(props, id) {
         <h1 className="display-4 my3">Maintenance</h1>  
         <Link to="/addvehicle"><Button>Add New Vehicle</Button></Link>
         <Container>
-          {/* <Legend>
-
-            <p>Pictures</p>
-            <p>Id</p>
-            <p>Vin</p>
-            <p>Year</p>
-            <p>Model</p>
-            <p>Mileage</p>
-            <p>Price</p>
-            <p>Exterior</p>
-            <p>Interior</p>
-            <p>Engine</p>
-            <p>Drivetrain</p>
-            <p>Warranty</p>
-            
-            </Legend> */}
+ 
               {neon.map(vehicle => {
                 return (
                  
@@ -111,12 +95,18 @@ export default function Maintenance(props, id) {
                     
                     <Largebox>
                       <Smallerboxes>
+                        <Link to={`/vehicles/${vehicle.id}`}>
                         <p>ID</p>
-                        <h4>{vehicle.id}</h4>  
+                        <h4>{vehicle.id}</h4>
+                        </Link>
                       </Smallerboxes>
                       <Smallerboxes>
                         <p>VIN</p>
                         <h6>{vehicle.vin}</h6>
+                      </Smallerboxes>
+                      <Smallerboxes>
+                        <p>License</p>
+                        <h6>{vehicle.license_plate}</h6>
                       </Smallerboxes>
                       <Smallerboxes>
                         <p>Year</p>

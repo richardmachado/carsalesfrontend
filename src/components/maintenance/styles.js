@@ -11,7 +11,7 @@ background-color:blue
 `
 
 export const Largebox = styled.div`
-width:90%;
+width:100%;
 height:5rem;
 display:flex;
 flex-direction:row;
@@ -57,12 +57,6 @@ cursor: pointer;
 }
 &:focus {
   outline: none;
-`
-export const Legend = styled.div`
-display:flex;
-justify-content: space-between;
-width:80%;
-margin-left:2rem
 `
 
 export const EditButton = styled.button `

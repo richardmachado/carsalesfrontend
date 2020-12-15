@@ -9,6 +9,9 @@ import Maintenance from "./components/maintenance/maintenance";
 import VinSearch from "./components/VinSearch/VinSearch";
 import AddVehicle from './components/AddVehicle/AddVehicle';
 import Financing from "./components/Financing/Financing"
+import Vehicles from "./components/Inventory/vehicles"
+
+// import PrivateRoute from './utils/PrivateRoute';
 
 function App(props) {
   return (
@@ -19,9 +22,10 @@ function App(props) {
         <Route path="/vinsearch" component={VinSearch} />
         <Route path="/login" component={Login} />
         <Route path="/inventory" component={Inventory} />
-        <Route path="/maintenance" component={Maintenance} />
+        <Route exact path="/maintenance" component={Maintenance} />
         <Route path="/addvehicle" component={AddVehicle} />
         <Route path="/financing" component={Financing} />
+        <Route path="/vehicles/:id" component={Vehicles} />
    
       </Switch>
     </div>

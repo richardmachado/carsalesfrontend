@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import {Largebox, PicturesBox, VehicleInfoBox, VehicleModel} from "./styles"
+import { Link } from "react-router-dom";
 
 function Inventory() {
     const [neon, setNeo] = useState();
@@ -29,6 +30,7 @@ function Inventory() {
       <h1 className="display-4 my3">Inventory</h1>        
               {neon.map(vehicle => {
                 return (
+                  <Link to={`/vehicles/${vehicle.id}`}>
                   <Largebox key={vehicle.id}>
                     <PicturesBox>pictures will go here</PicturesBox>
                       <VehicleInfoBox >
@@ -45,7 +47,8 @@ function Inventory() {
                         <VehicleModel>Warranty: {vehicle.warranty} </VehicleModel>
                         <VehicleModel>Description {vehicle.description} </VehicleModel>
                     </VehicleInfoBox>
-                  </Largebox>  
+                    </Largebox>
+                  </Link>  
               )
               })}
       </div>
