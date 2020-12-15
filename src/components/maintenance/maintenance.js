@@ -7,10 +7,12 @@ import {
   // VehicleInfoBox,
   Largebox,
   PicturesBox,
+  Smallerboxes,
   DeleteButton,
   EditButton,
   Button,
-  Container
+  Container,
+  // Legend
 } from "./styles";
 import { Link } from 'react-router-dom';
 import { confirmationFlow } from "./ConfirmationFlow";
@@ -37,6 +39,7 @@ export default function Maintenance(props, id) {
   const [neon, setNeo] = useState();
   const [current, send] = useMachine(confirmationFlow);
   const [imageIds, setImageIds] = useState();
+  
   const loadImages = async () => {
     try {
       const res = await fetch('https://carsalesbackend.herokuapp.com/api/images');
@@ -74,6 +77,22 @@ export default function Maintenance(props, id) {
         <h1 className="display-4 my3">Maintenance</h1>  
         <Link to="/addvehicle"><Button>Add New Vehicle</Button></Link>
         <Container>
+          {/* <Legend>
+
+            <p>Pictures</p>
+            <p>Id</p>
+            <p>Vin</p>
+            <p>Year</p>
+            <p>Model</p>
+            <p>Mileage</p>
+            <p>Price</p>
+            <p>Exterior</p>
+            <p>Interior</p>
+            <p>Engine</p>
+            <p>Drivetrain</p>
+            <p>Warranty</p>
+            
+            </Legend> */}
               {neon.map(vehicle => {
                 return (
                  
@@ -91,20 +110,55 @@ export default function Maintenance(props, id) {
                     </PicturesBox>
                     
                     <Largebox>
-                      <h3>ID:{vehicle.id}</h3>  
-                      <h6>Vin:{vehicle.vin}</h6>
-                      <h4>Model: {vehicle.year} </h4>
-                      <h4>Make: {vehicle.make} </h4>
-                      <h4>Vehicle Model: {vehicle.model} </h4>
-                      <h4>Current Mileage: {vehicle.mileage} </h4>
-                      <h4>Price: ${vehicle.price} </h4>
-                      <h4>Exterior Color: {vehicle.color_exterior} </h4>
-                      <h4>Interior Color: {vehicle.color_interior} </h4>
-                      <h4>Interior Fabric: {vehicle.fabric}</h4>
-                      <h4>Engine Type: {vehicle.engine} </h4>
-                      <h4>Drivetrain: {vehicle.drivetrain} </h4>
-                      <h4>Warranty: {vehicle.warranty} </h4>
-                      {/* <h3>Description {vehicle.description} </h3> */}
+                      <Smallerboxes>
+                        <p>ID</p>
+                        <h4>{vehicle.id}</h4>  
+                      </Smallerboxes>
+                      <Smallerboxes>
+                        <p>VIN</p>
+                        <h6>{vehicle.vin}</h6>
+                      </Smallerboxes>
+                      <Smallerboxes>
+                        <p>Year</p>
+                        <h4>{vehicle.year} </h4>
+                      </Smallerboxes>
+                      <Smallerboxes>
+                        <p>Make</p>
+                        <h4>{vehicle.make} </h4>
+                      </Smallerboxes>
+                      <Smallerboxes>
+                        <p>Model</p>
+                        <h4>{vehicle.model} </h4>
+                      </Smallerboxes>  
+                      <Smallerboxes>
+                        <p>mileage</p>
+                        <h4>{vehicle.mileage} </h4>
+                      </Smallerboxes>
+                      <Smallerboxes>
+                        <p>Price</p>
+                        <h4>${vehicle.price} </h4>
+                      </Smallerboxes>                      <Smallerboxes>
+                        <p>Exterior</p>
+                        <h4>{vehicle.color_exterior} </h4>
+                      </Smallerboxes>                      <Smallerboxes>
+                        <p>Interior</p>
+                        <h4>{vehicle.color_interior} </h4>
+                      </Smallerboxes>
+                      <Smallerboxes>
+                        <p>Fabric</p>
+                        <h4>{vehicle.fabric} </h4>
+                      </Smallerboxes><Smallerboxes>
+                        <p>Engine</p>
+                        <h4>{vehicle.engine} </h4>
+                      </Smallerboxes><Smallerboxes>
+                        <p>Drivetrain</p>
+                        <h4>{vehicle.drivetrain} </h4>
+                      </Smallerboxes><Smallerboxes>
+                        <p>Warranty</p>
+                        <h4>{vehicle.warranty} </h4>
+                      </Smallerboxes>
+                      
+                      <Smallerboxes>
                       <EditButton>Edit</EditButton>
                
            {/*-------------------------------------Delete Button Modal---------------------------- */}
@@ -125,7 +179,7 @@ export default function Maintenance(props, id) {
                             </button>
                       </Modal>
             {/*-------------------------------------End of Delete Button Modal---------------------------- */}
-                      
+            </Smallerboxes>
                     </Largebox>
                     </Largebox>
                    

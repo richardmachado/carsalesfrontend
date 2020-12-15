@@ -1,29 +1,18 @@
 import React, { Component } from 'react'
-import dealer from "../pictures/car-dealer.jpg"
+// import dealer from "../pictures/car-dealer.jpg"
 
 
 import {
-    Photo,
+    // Photo,
     Usedcars,
-    Usedcarsborder
+    // Usedcarsborder
 } from './styles';
 
 export class Home extends Component {
     render() {
         return (
-            <div className="home">
-                <Usedcarsborder>
-                <Usedcars>Static Photo</Usedcars>
-                <Photo src={dealer} alt="logo" />
-                </Usedcarsborder>
-
-                <Usedcarsborder>
-                <Usedcars>Photo Carousel</Usedcars>
-                <Photo src={dealer} alt="logo" />
-                </Usedcarsborder>
-
-
-
+            <div>
+                <Usedcars>Hundred of cars for Sale</Usedcars>
             </div>
         )
     }

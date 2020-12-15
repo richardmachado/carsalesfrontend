@@ -25,18 +25,25 @@ export default function AddVehicle(props) {
       setPreviewSource(reader.result)
     }
   }
-  const uploadImage = async(base64EncodedImage) => {
+
+  
+  const uploadImage = async (base64EncodedImage) => {
     try {
-      await fetch('https://carsalesbackend.herokuapp.com/api/upload', {
+ 
+      await fetch('https://carsalesbackend.herokuapp.com//api/upload', {
         method: 'POST',
         body: JSON.stringify({ data: base64EncodedImage}),
-        headers:{"content-type": 'application/json'}
+        headers: { "content-type": 'application/json' }
+      })
+        .then((response) => {
+        return response.text();
       })
 
     } catch (error) {
       console.log(error)
     }
   } 
+
   const onSubmit = data => {
     if (!previewSource) return;
     uploadImage(previewSource);
@@ -56,7 +63,8 @@ export default function AddVehicle(props) {
     return (
       <Container>
         <Link to ="/maintenance"><Button>Cancel</Button></Link>
-            <h2>Add New Vehicle</h2>
+        <h2>Add New Vehicle</h2>
+        
             
             <form onSubmit={handleSubmit(onSubmit)}>
           <StyledForm>

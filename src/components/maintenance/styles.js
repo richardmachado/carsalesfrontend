@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Body = styled.div`
 background-color:#dadee6;
+
 `
 export const Container = styled.div`
 grid-row:auto;
@@ -10,22 +11,30 @@ background-color:blue
 `
 
 export const Largebox = styled.div`
-width:100%;
+width:90%;
+height:5rem;
 display:flex;
-flex-direction:row  ;
-padding-bottom:2rem;
+flex-direction:row;
+justify-content:space-between;
+padding-bottom:7rem;
 border: solid blue 1px;
-margin-bottom:1rem;
+margin-bottom:2rem;
 margin-left:1rem;
+`
+export const Smallerboxes = styled.div`
+display:flex;
+flex-direction:column;
+
+
 `
 
 export const PicturesBox = styled.div`
 width:10rem;
-border:solid pink 1px
+// border:solid pink 1px
 `
 
 export const VehicleInfoBox = styled.div`
-border:solid red 1px;
+// border:solid red 1px;
 `
 
 export const AddNewVehicle = styled.button`
@@ -49,11 +58,17 @@ cursor: pointer;
 &:focus {
   outline: none;
 `
+export const Legend = styled.div`
+display:flex;
+justify-content: space-between;
+width:80%;
+margin-left:2rem
+`
 
 export const EditButton = styled.button `
 font-size: 21px;
-padding: 5px 20px;
-margin-bottom:2rem;
+// padding: 5px 20px;
+margin-bottom:1rem;
 border: 0;
 background-color: #000000;
 color: #fff;
