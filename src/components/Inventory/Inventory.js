@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Modal from 'react-modal'
+// import Modal from 'react-modal'
 import {Body, Largebox, PicturesBox, VehicleInfoBox, VehicleModel} from "./styles"
 import { Link } from "react-router-dom";
 
@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 
 function Inventory() {
   const [neon, setNeo] = useState();
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-// console.log(neon)
+  // const [modalIsOpen, setModalIsOpen] = useState(false)
+  // console.log(neon)
 
   useEffect(() => {
     axios
@@ -40,9 +40,10 @@ function Inventory() {
                         </PicturesBox>
                      
                       <VehicleInfoBox >
-                      <button onClick={() => setModalIsOpen(true)}>Open Modal</button>
+                      {/* <button onClick={() => setModalIsOpen(true)}>Open Modal</button>
                       <Modal ariaHideApp={false}
                         isOpen={modalIsOpen}
+                       
         onRequestClose={() => setModalIsOpen(false)}
         style={
    { overlay: {
@@ -53,10 +54,10 @@ function Inventory() {
      }
       }
     }
-                      >       
-                      
+                      >      <Vehicle />
         <button onClick={()=>setModalIsOpen(false)}>Close</button>
-     </Modal>
+                      </Modal> */}
+
                         <VehicleModel>Year: {vehicle.year} {vehicle.make} {vehicle.model}</VehicleModel>
                         <VehicleModel>Exterior Color: {vehicle.color_exterior} </VehicleModel>
                         <VehicleModel>Interior Color: {vehicle.color_interior} </VehicleModel>
@@ -64,7 +65,7 @@ function Inventory() {
                         <VehicleModel>Vin:{vehicle.vin}</VehicleModel>
                         <VehicleModel>Current Mileage: {vehicle.mileage} </VehicleModel>
                         <VehicleModel>Price: ${vehicle.price} </VehicleModel>
-                        <VehicleModel>Engine Type: {vehicle.engine} </VehicleModel>
+                        <VehicleModel>Engine Type: {vehicle.engine_size} {vehicle.cylinders} {vehicle.transmission} </VehicleModel>
                         <VehicleModel>Drivetrain: {vehicle.drivetrain} </VehicleModel>
                         <VehicleModel>Warranty: {vehicle.warranty} </VehicleModel>
                         <VehicleModel>Description {vehicle.description} </VehicleModel>

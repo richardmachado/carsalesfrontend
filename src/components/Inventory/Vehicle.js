@@ -5,7 +5,11 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import {
+    Body,
     Largebox,
+    Wrapperbox,
+    Smallbox,
+    SmallboxInfo,
     PicturesBox,
     VehicleInfoBox,
     VehicleModel
@@ -38,24 +42,37 @@ function Vehicle({ match })  {
 
     
     return (
-        <div className="body">
+        <Body>
             <div className="container">
                 
                 {neon.map(vehicle => {
         if (Number(params.id)===vehicle.id) {
             return (
             <div key={vehicle.id}>
-                    <h1 className="display-4 my3">Vehicle Information</h1>
-                    <h2>{vehicle.year} {vehicle.make} {vehicle.model}</h2>
+                    <h1 className="display-4 my3" style={{color:"white"}}>Vehicle Information</h1>
+                    <h2 style={{color:"white"}}>{vehicle.year} {vehicle.make} {vehicle.model}</h2>
             <Largebox key={vehicle.id}>
             <PicturesBox>pictures</PicturesBox>
-              <VehicleInfoBox >
+                        <VehicleInfoBox >
+
+                       <Wrapperbox>    
+                        <Smallbox>
+                                <SmallboxInfo>Price</SmallboxInfo>
+                                <SmallboxInfo> ${vehicle.price} </SmallboxInfo>
+                        </Smallbox>
+                            
+                        <Smallbox  >
+                            <SmallboxInfo>Mileage</SmallboxInfo>
+                            <SmallboxInfo>{vehicle.mileage} </SmallboxInfo>
+                                </Smallbox> 
+                        </Wrapperbox>         
+                            
               <VehicleModel>Exterior Color: {vehicle.color_exterior} </VehicleModel>
               <VehicleModel>Interior Color: {vehicle.color_interior} </VehicleModel>
               <VehicleModel>Interior Fabric: {vehicle.fabric}</VehicleModel>
                 <VehicleModel>Vin:{vehicle.vin}</VehicleModel>
-                <VehicleModel>Current Mileage: {vehicle.mileage} </VehicleModel>
-                <VehicleModel>Price: ${vehicle.price} </VehicleModel>
+
+
                 <VehicleModel>Engine Type: {vehicle.engine_size} {vehicle.cylinders} </VehicleModel>
                 <VehicleModel>Transmission: {vehicle.transmission} </VehicleModel>
                 <VehicleModel>Drivetrain: {vehicle.drivetrain} </VehicleModel>
@@ -68,7 +85,7 @@ function Vehicle({ match })  {
     }else {return null}
                 })} 
             </div>
-        </div>
+        </Body>
     );
 }
 export default Vehicle;

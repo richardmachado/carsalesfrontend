@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Modal from "react-modal"
+// import Modal from "react-modal"
 import axios from "axios";
 import { Image } from 'cloudinary-react';
 import {
@@ -12,10 +12,11 @@ import {
   EditButton,
   Button,
   Container,
+  StyledLink
 } from "./styles";
 import { Link } from 'react-router-dom';
-import { confirmationFlow } from "./ConfirmationFlow";
-import { useMachine } from "react-robot";
+// import { confirmationFlow } from "./ConfirmationFlow";
+// import { useMachine } from "react-robot";
 
 
 // import AddNewVehicleModal from './AddNewVehicleModal';
@@ -36,7 +37,7 @@ export default function Maintenance(props, id) {
   };
 
   const [neon, setNeo] = useState();
-  const [current, send] = useMachine(confirmationFlow);
+  // const [current, send] = useMachine(confirmationFlow);
   const [imageIds, setImageIds] = useState();
   
   const loadImages = async () => {
@@ -95,16 +96,16 @@ export default function Maintenance(props, id) {
                     
                     <Largebox>
                       <Smallerboxes>
-                        <Link to={`/vehicles/${vehicle.id}`}>
+                        <StyledLink  to={`/vehicles/${vehicle.id}`} >
                         <p>ID</p>
-                        <h4>{vehicle.id}</h4>
-                        </Link>
+                        <h4 >{vehicle.id}</h4>
+                        </StyledLink>
                       </Smallerboxes>
                       <Smallerboxes>
                         <p>VIN</p>
                         <h6>{vehicle.vin}</h6>
                       </Smallerboxes>
-                      <Smallerboxes>
+                      <Smallerboxes >
                         <p>License</p>
                         <h6>{vehicle.license_plate}</h6>
                       </Smallerboxes>
@@ -127,44 +128,53 @@ export default function Maintenance(props, id) {
                       <Smallerboxes>
                         <p>Price</p>
                         <h4>${vehicle.price} </h4>
-                      </Smallerboxes>                      <Smallerboxes>
+                      </Smallerboxes>
+                      <Smallerboxes>
                         <p>Exterior</p>
                         <h4>{vehicle.color_exterior} </h4>
-                      </Smallerboxes>                      <Smallerboxes>
+                      </Smallerboxes>
+                      <Smallerboxes>
                         <p>Interior</p>
                         <h4>{vehicle.color_interior} </h4>
                       </Smallerboxes>
                       <Smallerboxes>
                         <p>Fabric</p>
                         <h4>{vehicle.fabric} </h4>
-                      </Smallerboxes><Smallerboxes>
+                      </Smallerboxes>
+                      <Smallerboxes>
                         <p>Engine</p>
                         <h4>{vehicle.engine_size} </h4>
-                      </Smallerboxes><Smallerboxes>
-                      </Smallerboxes><Smallerboxes>
+                      </Smallerboxes>                      
+                      <Smallerboxes>
                         <p>Cylinders</p>
                         <h4>{vehicle.cylinders} </h4>
-                      </Smallerboxes><Smallerboxes>
-                      </Smallerboxes><Smallerboxes>
+                      </Smallerboxes>
+                      <Smallerboxes>
+                      </Smallerboxes>
+                      <Smallerboxes>
                         <p>Transmission</p>
                         <h4>{vehicle.transmission} </h4>
-                      </Smallerboxes><Smallerboxes>
+                      </Smallerboxes>
+                      <Smallerboxes>
                         <p>Drivetrain</p>
                         <h4>{vehicle.drivetrain} </h4>
-                      </Smallerboxes><Smallerboxes>
+                      </Smallerboxes>
+                      <Smallerboxes>
                         <p>Warranty</p>
                         <h4>{vehicle.warranty} </h4>
-                      </Smallerboxes>
-                      
+                      </Smallerboxes>      
                       <Smallerboxes>
                       <EditButton>Edit</EditButton>
                
            {/*-------------------------------------Delete Button Modal---------------------------- */}
-                        <DeleteButton onClick={() => send('begin')}>
+                        <DeleteButton onClick={() =>
+                          // send('begin')
+                          removeId(vehicle.id)
+                        }>
                             Delete 
                           </DeleteButton>
 
-                          <Modal
+                          {/* <Modal
                             onRequestClose={() => send('cancel')}
                           isOpen={current.name === 'confirming'}
                           ariaHideApp={false}
@@ -174,10 +184,10 @@ export default function Maintenance(props, id) {
                               Cancel
                             </button>
                             <button className="btn btn-danger" onClick={() => send(removeId(vehicle.id))}>
-                            Yes Definitely, Delete {vehicle.id}<span> </span>
+                            Yes Definitely, Delete id# {vehicle.id}<span> </span>
                             {vehicle.make}<span></span> {vehicle.model}
                             </button>
-                      </Modal>
+                      </Modal> */}
             {/*-------------------------------------End of Delete Button Modal---------------------------- */}
             </Smallerboxes>
                     </Largebox>

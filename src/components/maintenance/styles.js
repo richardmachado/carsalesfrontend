@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 
 export const Body = styled.div`
 background-color:#dadee6;
@@ -24,7 +25,6 @@ margin-left:1rem;
 export const Smallerboxes = styled.div`
 display:flex;
 flex-direction:column;
-
 
 `
 
@@ -93,4 +93,13 @@ cursor: pointer;
 &:focus {
   outline: none;
 `
+
+export const StyledLink = styled(Link)`
+text-decoration: none;
+
+&:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+}
+    
+`;
 

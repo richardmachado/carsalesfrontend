@@ -36,7 +36,9 @@ class Header extends Component {
                     <NavbarBrand href="/">Home </NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                         <Nav className="ml-auto" navbar>
-                       
+                        <NavItem>
+                                <NavLink href="/maintenance">Maintenance</NavLink>
+                            </NavItem>
                         <NavItem>
                                 <NavLink href="/inventory">Inventory</NavLink>
                             </NavItem>
