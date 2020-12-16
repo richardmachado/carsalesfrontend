@@ -9,11 +9,12 @@ import Maintenance from "./components/maintenance/maintenance";
 import VinSearch from "./components/VinSearch/VinSearch";
 import AddVehicle from './components/AddVehicle/AddVehicle';
 import Financing from "./components/Financing/Financing"
-import Vehicles from "./components/Inventory/vehicles"
+import Vehicles from "./components/Inventory/Vehicle"
 
 // import PrivateRoute from './utils/PrivateRoute';
 
 function App(props) {
+
   return (
     <div className="App">
       <Navigation />

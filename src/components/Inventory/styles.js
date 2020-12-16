@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
+export const Body = styled.div`
+background-color:#dadee6;
 
+`
 export const Largebox = styled.div`
 width:100%;
 border:solid blue 1px;

@@ -30,7 +30,7 @@ export default function AddVehicle(props) {
   const uploadImage = async (base64EncodedImage) => {
     try {
  
-      await fetch('https://carsalesbackend.herokuapp.com//api/upload', {
+      await fetch('https://carsalesbackend.herokuapp.com/api/upload', {
         method: 'POST',
         body: JSON.stringify({ data: base64EncodedImage}),
         headers: { "content-type": 'application/json' }
@@ -50,7 +50,8 @@ export default function AddVehicle(props) {
       setLoading(true);
         axios
             .post("https://carsalesbackend.herokuapp.com/api/inventory", data)
-            .then(res => {
+          .then(res => {
+              console.log(data)
                 props.history.push("/maintenance");
                 console.log(res);
           })
@@ -68,7 +69,7 @@ export default function AddVehicle(props) {
             
             <form onSubmit={handleSubmit(onSubmit)}>
           <StyledForm>
-          <label htmlFor="year"> </label>
+          <label htmlFor="vin"> </label>
               <Inputs 
                 type="text"  
                 placeholder="Vin Number" 
@@ -111,8 +112,20 @@ export default function AddVehicle(props) {
 
     
     
-     {/* End of vin  -------------------------------------------------------------------------------              */}
+            {/* End of vin  -------------------------------------------------------------------------------              */}
             
+            <label htmlFor="Licence"> </label>
+              <Inputs 
+                type="text"  
+                placeholder="License Plate- can leave blank" 
+                id="license_plate"
+                name="license_plate"
+
+                aria-invalid={errors.license_plate ? 'true' : 'false'}
+  
+                ref={register({required: false})} 
+              />
+              {/* End of license plate  -------------------------------------------------------------------------------              */}
             <label htmlFor="year"> </label>
               <Inputs 
                 type="text"  
@@ -197,7 +210,7 @@ export default function AddVehicle(props) {
                 ? "block"
                 : "none"
             }}
-                    ></span>
+                    >Make is too long</span>
                     
      {/* End of make  -------------------------------------------------------------------------------              */}
     
@@ -329,31 +342,54 @@ export default function AddVehicle(props) {
                     
      {/* End of price  -------------------------------------------------------------------------------              */}   
     
-     <label htmlFor="engine"> </label>
+     <label htmlFor="engine_size"> </label>
               <Inputs 
                 type="text"  
-                placeholder="Engine" 
-                id="engine"
-              name="engine"
-              defaultValue="2.3 V4 Automatic"
-                aria-invalid={errors.engine ? 'true' : 'false'}
-                aria-describedby="error-price-required error-price-maxLength"
+                placeholder="Engine Size (Liters)" 
+                id="engine_size"
+              name="engine_size"
+              defaultValue="2.3L"
+                aria-invalid={errors.engine_size ? 'true' : 'false'}
+                aria-describedby="error-engine_size-required error-engine_size-minLength"
                 ref={register({required: true, minLength: 1})} 
               />
               <span
             role="alert"
-            id="error-price-required"
+            id="error-engine_size-required"
             style={{
-              display: errors.engine && errors.engine.type === "required"
+              display: errors.engine_size && errors.engine_size.type === "required"
                 ? "block"
                 : "none"
             }}
           >
-            Engine is required
+            Engine Size is required
           </span>
       
                     
-            {/* End of engine  -------------------------------------------------------------------------------              */}  
+            {/* End of engine size  -------------------------------------------------------------------------------              */}  
+            
+            <p>Cylinders</p>
+                  <select name="cylinders" ref={register}>
+                  <option value="V4">V4</option>
+              <option value="V6">V6</option>
+              <option value="V8">V8</option>
+              <option value="V10">V10</option>
+              <option value="V12">V12</option>
+              <option value="V16">V16</option>
+  
+          </select>    
+      
+                    
+            {/* End of Cylinders  -------------------------------------------------------------------------------              */}
+            <p>Transmission</p>
+                  <select name="transmission" ref={register}>
+                  <option value="Automatic">Automatic</option>
+                  <option value="Manual">Manual </option>
+  
+    
+          </select>         
+                    
+            {/* End of Tranmission  -------------------------------------------------------------------------------*/}   
             
             <label htmlFor="color_interior"> </label>
               <Inputs 
@@ -405,7 +441,7 @@ export default function AddVehicle(props) {
           </span>
       
                     
-              {/* End of Exterior Color  -------------------------------------------------------------------------------              */}   
+          {/* End of Exterior Color  -------------------------------------------------------------------- */}   
                 <p>Interior Fabric</p>
                   <select name="fabric" ref={register}>
                   <option value="Cloth">Cloth</option>
@@ -416,7 +452,7 @@ export default function AddVehicle(props) {
                     
         {/* End of Fabric  -------------------------------------------------------------------------------*/}   
                     <p>drivetrain</p>
-        <select name="drivetrain" ref={register}>
+                  <select name="drivetrain" ref={register}>
                   <option value="2WD">2WD</option>
                   <option value="4WD">4WD</option>
                   <option value="AWD">AWD</option>

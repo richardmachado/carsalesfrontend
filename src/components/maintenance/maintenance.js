@@ -86,7 +86,7 @@ export default function Maintenance(props, id) {
                          <Image
                            key={index}
                            cloudName="dd1erw65b"
-                           publicId={imageId}
+                          //uncomment to get pictures  publicId={imageId}
                            width="100"
                            crop="scale"
                          />
@@ -139,7 +139,15 @@ export default function Maintenance(props, id) {
                         <h4>{vehicle.fabric} </h4>
                       </Smallerboxes><Smallerboxes>
                         <p>Engine</p>
-                        <h4>{vehicle.engine} </h4>
+                        <h4>{vehicle.engine_size} </h4>
+                      </Smallerboxes><Smallerboxes>
+                      </Smallerboxes><Smallerboxes>
+                        <p>Cylinders</p>
+                        <h4>{vehicle.cylinders} </h4>
+                      </Smallerboxes><Smallerboxes>
+                      </Smallerboxes><Smallerboxes>
+                        <p>Transmission</p>
+                        <h4>{vehicle.transmission} </h4>
                       </Smallerboxes><Smallerboxes>
                         <p>Drivetrain</p>
                         <h4>{vehicle.drivetrain} </h4>
@@ -153,19 +161,21 @@ export default function Maintenance(props, id) {
                
            {/*-------------------------------------Delete Button Modal---------------------------- */}
                         <DeleteButton onClick={() => send('begin')}>
-                            Delete
+                            Delete 
                           </DeleteButton>
 
                           <Modal
                             onRequestClose={() => send('cancel')}
-                            isOpen={current.name === 'confirming'}
+                          isOpen={current.name === 'confirming'}
+                          ariaHideApp={false}
                           >
                             Are you sure?! Action cannot be undone
                             <button onClick={() => send('cancel')}>
                               Cancel
                             </button>
                             <button className="btn btn-danger" onClick={() => send(removeId(vehicle.id))}>
-                              Yes Definitely
+                            Yes Definitely, Delete {vehicle.id}<span> </span>
+                            {vehicle.make}<span></span> {vehicle.model}
                             </button>
                       </Modal>
             {/*-------------------------------------End of Delete Button Modal---------------------------- */}
