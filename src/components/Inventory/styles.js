@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Body = styled.div`
 background-color:#333;
+color:white;
 
 `
 export const Wrapperbox = styled.div`

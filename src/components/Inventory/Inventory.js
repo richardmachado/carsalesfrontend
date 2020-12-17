@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import Modal from 'react-modal'
 import {Body, Largebox, PicturesBox, VehicleInfoBox, VehicleModel} from "./styles"
 import { Link } from "react-router-dom";
 
@@ -8,8 +7,7 @@ import { Link } from "react-router-dom";
 
 function Inventory() {
   const [neon, setNeo] = useState();
-  // const [modalIsOpen, setModalIsOpen] = useState(false)
-  // console.log(neon)
+
 
   useEffect(() => {
     axios
@@ -40,23 +38,7 @@ function Inventory() {
                         </PicturesBox>
                      
                       <VehicleInfoBox >
-                      {/* <button onClick={() => setModalIsOpen(true)}>Open Modal</button>
-                      <Modal ariaHideApp={false}
-                        isOpen={modalIsOpen}
-                       
-        onRequestClose={() => setModalIsOpen(false)}
-        style={
-   { overlay: {
-     backgroundColor: 'grey'
-          },
-            content: {
-       color:'orange'
-     }
-      }
-    }
-                      >      <Vehicle />
-        <button onClick={()=>setModalIsOpen(false)}>Close</button>
-                      </Modal> */}
+ 
 
                         <VehicleModel>Year: {vehicle.year} {vehicle.make} {vehicle.model}</VehicleModel>
                         <VehicleModel>Exterior Color: {vehicle.color_exterior} </VehicleModel>

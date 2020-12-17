@@ -10,7 +10,8 @@ import VinSearch from "./components/VinSearch/VinSearch";
 import AddVehicle from './components/AddVehicle/AddVehicle';
 import Financing from "./components/Financing/Financing"
 import Vehicles from "./components/Inventory/Vehicle"
-import Footer from './components/footer/Footer'
+import EditVehicle from "./components/maintenance/EditVehicle"
+// import Footer from './components/footer/Footer'
 // import PrivateRoute from './utils/PrivateRoute';
 
 function App(props) {
@@ -28,9 +29,11 @@ function App(props) {
         <Route path="/addvehicle" component={AddVehicle} />
         <Route path="/financing" component={Financing} />
         <Route path="/vehicles/:id" component={Vehicles} />
+        <Route path="/edit/:id" component={EditVehicle} />
+
    
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
 
     </div>
   );

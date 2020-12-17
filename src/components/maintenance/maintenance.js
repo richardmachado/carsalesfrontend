@@ -15,12 +15,8 @@ import {
   StyledLink
 } from "./styles";
 import { Link } from 'react-router-dom';
-// import { confirmationFlow } from "./ConfirmationFlow";
-// import { useMachine } from "react-robot";
 
-
-// import AddNewVehicleModal from './AddNewVehicleModal';
-
+// import EditVehicle from './EditVehicle'
 
 export default function Maintenance(props, id) {
   const removeId = (id) => {
@@ -39,6 +35,7 @@ export default function Maintenance(props, id) {
   const [neon, setNeo] = useState();
   // const [current, send] = useMachine(confirmationFlow);
   const [imageIds, setImageIds] = useState();
+  
   
   const loadImages = async () => {
     try {
@@ -164,31 +161,23 @@ export default function Maintenance(props, id) {
                         <h4>{vehicle.warranty} </h4>
                       </Smallerboxes>      
                       <Smallerboxes>
-                      <EditButton>Edit</EditButton>
-               
+                      <EditButton>
+                        <Link to={`/edit/${vehicle.id}`}>
+                        Edit 
+                        </Link>   
+                        </EditButton>
            {/*-------------------------------------Delete Button Modal---------------------------- */}
-                        <DeleteButton onClick={() =>
-                          // send('begin')
-                          removeId(vehicle.id)
-                        }>
+                        <DeleteButton onClick={() => {if(window.confirm('Are you sure to delete this record?'))
+                          {removeId(vehicle.id)}
+                        }}>
                             Delete 
                           </DeleteButton>
+                        <div>
 
-                          {/* <Modal
-                            onRequestClose={() => send('cancel')}
-                          isOpen={current.name === 'confirming'}
-                          ariaHideApp={false}
-                          >
-                            Are you sure?! Action cannot be undone
-                            <button onClick={() => send('cancel')}>
-                              Cancel
-                            </button>
-                            <button className="btn btn-danger" onClick={() => send(removeId(vehicle.id))}>
-                            Yes Definitely, Delete id# {vehicle.id}<span> </span>
-                            {vehicle.make}<span></span> {vehicle.model}
-                            </button>
-                      </Modal> */}
-            {/*-------------------------------------End of Delete Button Modal---------------------------- */}
+
+</div>
+
+
             </Smallerboxes>
                     </Largebox>
                     </Largebox>

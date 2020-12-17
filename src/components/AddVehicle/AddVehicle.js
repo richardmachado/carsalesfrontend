@@ -56,7 +56,7 @@ export default function AddVehicle(props) {
                 console.log(res);
           })
           .catch(err => {
-            alert((err.message = "Vehicle failed"));
+            alert((err.message = "Adding Vehicle Failed"));
             console.log(err.response);
           });
       };
@@ -246,7 +246,38 @@ export default function AddVehicle(props) {
             }}
                     ></span>
      {/* End of model  -------------------------------------------------------------------------------              */}                
-    
+     <label htmlFor="body_type"> </label>
+              <Inputs 
+                type="text"  
+                placeholder="Body Type: SUV, Sedan, etc" 
+                id="body_type"
+              name="body_type"
+              defaultValue="Sedan"
+                aria-invalid={errors.body_type ? 'true' : 'false'}
+                aria-describedby="error-body_type-required error-body_type-maxLength"
+                ref={register({required: true, minLength: 1, maxLength: 24})} 
+              />
+              <span
+            role="alert"
+            id="error-body_type-required"
+            style={{
+              display: errors.body_type && errors.body_type.type === "required"
+                ? "block"
+                : "none"
+            }}
+          >
+            Body Type is required
+          </span>
+          <span
+            role="alert"
+            id="error-body_type-maxLength"
+            style={{
+              display: errors.name && errors.name.type === "maxLength"
+                ? "block"
+                : "none"
+            }}
+                    >Too long</span>
+     {/* End of model  -------------------------------------------------------------------------------              */}          
     
                     <label htmlFor="Mileage"> </label>
               <Inputs 
