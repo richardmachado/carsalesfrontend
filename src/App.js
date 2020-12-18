@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from "./Login/Login";
 import Home from "./components/Home/Home";
 import Inventory from "./components/Inventory/Inventory";
-import Maintenance from "./components/Maintenance/Maintenance";
+import Maintenance from "./components/maintenance/Maintenance";
 import VinSearch from "./components/VinSearch/VinSearch";
 import AddVehicle from './components/AddVehicle/AddVehicle';
 import Financing from "./components/Financing/Financing"
