@@ -73,6 +73,7 @@ export default function Maintenance(props, id) {
     <div>
         <h1 className="display-4 my3">Maintenance</h1>  
         <Link to="/addvehicle"><Button>Add New Vehicle</Button></Link>
+
         <Container>
  
               {neon.map(vehicle => {
@@ -161,11 +162,13 @@ export default function Maintenance(props, id) {
                         <h4>{vehicle.warranty} </h4>
                       </Smallerboxes>      
                       <Smallerboxes>
-                      <EditButton>
+                      
                         <Link to={`/edit/${vehicle.id}`}>
-                        Edit 
-                        </Link>   
+                        <EditButton>
+                            Edit 
+                             
                         </EditButton>
+                        </Link>   
            {/*-------------------------------------Delete Button Modal---------------------------- */}
                         <DeleteButton onClick={() => {if(window.confirm('Are you sure to delete this record?'))
                           {removeId(vehicle.id)}

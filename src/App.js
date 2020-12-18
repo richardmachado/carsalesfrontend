@@ -10,7 +10,7 @@ import VinSearch from "./components/VinSearch/VinSearch";
 import AddVehicle from './components/AddVehicle/AddVehicle';
 import Financing from "./components/Financing/Financing"
 import Vehicles from "./components/Inventory/Vehicle"
-import EditVehicle from "./components/maintenance/EditVehicle"
+import EditVehicle from "./components/EditVehicle/EditVehicle"
 // import Footer from './components/footer/Footer'
 // import PrivateRoute from './utils/PrivateRoute';
 

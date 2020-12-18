@@ -114,7 +114,7 @@ export default function AddVehicle(props) {
     
             {/* End of vin  -------------------------------------------------------------------------------              */}
             
-            <label htmlFor="Licence"> </label>
+            <label htmlFor="license_plate"> </label>
               <Inputs 
                 type="text"  
                 placeholder="License Plate- can leave blank" 
@@ -139,7 +139,7 @@ export default function AddVehicle(props) {
               />
               <span
             role="alert"
-            id="error-name-required"
+            id="error-year-required"
             style={{
               display: errors.year && errors.year.type === "required"
                 ? "block"
@@ -150,7 +150,7 @@ export default function AddVehicle(props) {
           </span>
           <span
             role="alert"
-            id="error-name-maxLength"
+            id="error-year-maxLength"
             style={{
               display: errors.year && errors.year.type === "maxLength"
                 ? "block"
@@ -159,13 +159,15 @@ export default function AddVehicle(props) {
                 >Too many characters</span>
                      <span
             role="alert"
-            id="error-name-minLength"
+            id="error-year-minLength"
             style={{
               display: errors.year && errors.year.type === "minLength"
                 ? "block"
                 : "none"
             }}
             >Minimum 4 characters</span>
+             {/* End of year  -------------------------------------------------------------------------------              */}
+            
             <Inputs
               type="file"
               name="image"
@@ -178,7 +180,7 @@ export default function AddVehicle(props) {
             )}
     
     
-     {/* End of year  -------------------------------------------------------------------------------              */}
+     {/* End of image upload  -------------------------------------------------------------------------------              */}
     
     <label htmlFor="make"> </label>
               <Inputs 
