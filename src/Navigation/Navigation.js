@@ -41,21 +41,22 @@ class Header extends Component {
                             </NavItem>
                         <NavItem>
                                 <NavLink href="/inventory">Inventory</NavLink>
+                        </NavItem>
+                        <NavItem>
+                        <NavLink href="/financing">Financing</NavLink> 
                             </NavItem>
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
-                                    Dropdown
-                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                    <NavLink href="/vinsearch">VIN Search</NavLink>
-                  </DropdownItem>
-                                    <DropdownItem>
-                                    <NavLink href="/financing">Financing</NavLink>
-                  </DropdownItem>
-                                  
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
+                                    Dropdown 
+                                    </DropdownToggle>
+                                                    <DropdownMenu right>
+
+                                                        <DropdownItem>
+                                                        
+                                    </DropdownItem>
+                                                    
+                                                    </DropdownMenu>
+                                                </UncontrolledDropdown>
 
                           
                             <NavItem>

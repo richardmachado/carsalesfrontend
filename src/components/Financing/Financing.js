@@ -1,11 +1,20 @@
-import React, { Component } from 'react'
+import { Component } from "react";
 
-export default class Financing extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Financing</h1>
-            </div>
-        )
-    }
+
+import "./Calculator.css";
+import "react-input-range/lib/css/index.css";
+import CalculatorForm from "./CalculatorForm";
+import SmallCalculator from "./SmallCalculator";
+
+class Financing extends Component {
+  render() {
+    return (
+      <div className="styling">
+        <SmallCalculator />
+        <CalculatorForm />
+      </div>
+    );
+  }
 }
+
+export default Financing;
