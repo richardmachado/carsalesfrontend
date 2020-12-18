@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from "./Login/Login";
 import Home from "./components/Home/Home";
 import Inventory from "./components/Inventory/Inventory";
-import Maintenance from "./components/Maintenance/Maintenance";
+// import Maintenance from "./components/Maintenance/Maintenance";
 import VinSearch from "./components/VinSearch/VinSearch";
 import AddVehicle from './components/AddVehicle/AddVehicle';
 import Financing from "./components/Financing/Financing"
@@ -25,7 +25,7 @@ function App(props) {
         <Route path="/vinsearch" component={VinSearch} />
         <Route path="/login" component={Login} />
         <Route path="/inventory" component={Inventory} />
-        <Route exact path="/maintenance" component={Maintenance} />
+        {/* <Route exact path="/maintenance" component={Maintenance} /> */}
         <Route path="/addvehicle" component={AddVehicle} />
         <Route path="/financing" component={Financing} />
         <Route path="/vehicles/:id" component={Vehicles} />
