@@ -24,7 +24,7 @@ class SmallCalculator extends Component {
 
       return (
           <div className="body">
-              <h1>Financial Calculators</h1>
+              
             <div className="Calc">
                 <h4>I want to borrow ${amountValue}</h4>
                 <InputRange

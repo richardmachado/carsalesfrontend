@@ -9,9 +9,16 @@ import SmallCalculator from "./SmallCalculator";
 class Financing extends Component {
   render() {
     return (
-      <div className="styling">
-        <SmallCalculator />
-        <CalculatorForm />
+      <div>
+        <h1>Financial Calculators</h1>
+        <div className="styling">
+          <div>
+            <SmallCalculator />
+          </div>
+          <div>
+            <CalculatorForm />
+            </div>
+      </div>
       </div>
     );
   }

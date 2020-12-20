@@ -11,8 +11,11 @@ export const Container = styled.div`
   width: 80%%;
   margin: 20vh auto;
   box-shadow: 15px 20px 70px -10px;
-  @media (max-width: 1200px) {
+  @media (min-width: 1200px) {
     margin-left:3rem;
+  }
+  @media (min-width: 600px) {
+    margin-left:2rem;
   }
 `
 
