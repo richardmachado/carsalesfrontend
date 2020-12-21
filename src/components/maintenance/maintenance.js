@@ -16,6 +16,10 @@ import {
 } from "./styles";
 import { Link } from 'react-router-dom';
 
+ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+ import Tooltip from 'react-bootstrap/Tooltip'
+
+
 // import EditVehicle from './EditVehicle'
 
 export default function Maintenance(props, id) {
@@ -23,7 +27,8 @@ export default function Maintenance(props, id) {
     axios
         .delete(`https://carsalesbackend.herokuapp.com/api/inventory/${id}`)
       .then(res => {
-        window.location.reload(false);
+        window.location(false);
+        console.log(window.locate)
         
       })
       .catch(err => {
@@ -70,9 +75,20 @@ export default function Maintenance(props, id) {
 
   return (
     <Body>
-    <div>
-        <h1 className="display-4 my3">Maintenance</h1>  
-        <Link to="/addvehicle"><Button>Add New Vehicle</Button></Link>
+      <div>
+        <h1 className="display-4 my3">Maintenance</h1> 
+        
+        <div>
+        <OverlayTrigger
+  
+            overlay={
+            
+              <Tooltip id="tooltip-left">
+                <strong>Adds a new vehicle</strong>.
+              </Tooltip>}>
+          <Link to="/addvehicle"><Button>Add New Vehicle</Button></Link>
+            </OverlayTrigger>
+      </div>   
 
         <Container>
  
