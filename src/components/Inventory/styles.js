@@ -54,3 +54,33 @@ font-size: 16px;
 line-height: 31px;
 color:#d9d9d9;
 `
+
+export const Products = styled.div`
+display:flex;
+flex:direction:row;
+justify-content:space-around;
+@media (max-width: 600px) {
+flex-direction:column;
+  } 
+  @media only screen and (max-width: 800px) and (min-width: 601px) {
+      flex-direction:column
+  }
+  @media only screen and (max-width: 801px) and (min-width: 1200px) {
+    flex-direction:row;
+
+}
+`
+
+export const ProductRows = styled.div`
+display:flex;
+flex-direction:row
+@media (max-width: 600px) {
+    flex-direction:column;
+      } 
+@media only screen and (max-width: 800px) and (min-width: 601px) {
+     flex-direction:row;
+   } 
+   @media only screen and (max-width: 801px) and (min-width: 601px) {
+    flex-direction:row;
+}
+`

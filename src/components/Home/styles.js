@@ -94,18 +94,18 @@ font-size: 17px;
 
 position: absolute; 
 top: 750px;
-right:50%; 
+right:45%; 
 
 @media (max-width: 1282px) {
     position: absolute; 
     top: 500px;
-    right:50%; 
+    right:45%; 
   }
 
   @media (max-width: 1022px) {
     position: absolute; 
     top: 500px;
-    right:50%; 
+    right:43%; 
   }
   @media (max-width: 800px) {
     top: 350px; 
