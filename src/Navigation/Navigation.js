@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { Nav, Navbar, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
-// import { NavLink } from 'reactstrap';
+import { NavLink } from 'reactstrap';
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
     
 import Home from '../components/Home/Home';
 import Maintenance from '../components/maintenance/maintenance'
@@ -20,6 +20,7 @@ import About from "../components/About/About"
 import EditVehicle from "../components/EditVehicle/EditVehicle"
 import PortableSupplies from "../components/Inventory/Portable";
 import Accessories from "../components/Inventory/Accessories";
+import Treats from '../components/Inventory/Treats'
 import Logo from "./Logo.jpg";
 
 
@@ -32,12 +33,12 @@ function Navi () {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/about">About Us</Nav.Link>
+      <NavLink tag={Link}  to="/">Home</NavLink>
+      <NavLink tag={Link}  to="/about">About Us</NavLink>
       <NavDropdown href="/products" title="Products"  id="basic-nav-dropdown">
-        <NavDropdown.Item href="/portable-supplies">Portable Supplies</NavDropdown.Item>
-        <NavDropdown.Item href="/portable-accessories">Portable Accessories</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Treats</NavDropdown.Item>
+        <NavLink tag={Link}  to="/portable-supplies">Portable Supplies</NavLink>
+        <NavLink tag={Link}  to="/portable-accessories">Portable Accessories</NavLink>
+        <NavLink tag={Link}  to="/treats">Treats</NavLink>
     
       </NavDropdown>
     </Nav>
@@ -61,7 +62,8 @@ function Navi () {
                 <Route path="/edit/:id" component={EditVehicle} />
                 <Route path="/about" component={About} />
                 <Route path="/portable-supplies" component={PortableSupplies} />
-                <Route path="/portable-accessories" component={Accessories} />
+          <Route path="/portable-accessories" component={Accessories} />
+          <Route path="/treats" component={Treats} />
 
 
  </Switch>
